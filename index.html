@@ -151,9 +151,18 @@ text-decoration:none;
 
 let data = JSON.parse(localStorage.getItem("products"));
 
-if(!data){
-data = { cold:[], water:[], chips:[] };
-}
+let data = {
+cold:[
+{name:"Pepsi",price:"₹40",stock:"Available",img:"https://images.unsplash.com/photo-1604908176997-4310a3cb5b61"},
+{name:"Sprite",price:"₹40",stock:"Low Stock",img:"https://images.unsplash.com/photo-1622483767028-3f66f0a4d07e"}
+],
+water:[
+{name:"Bisleri",price:"₹20",stock:"Available",img:"https://images.unsplash.com/photo-1564419320461-6870880221ad"}
+],
+chips:[
+{name:"Lays",price:"₹20",stock:"Available",img:"https://images.unsplash.com/photo-1585238342024-78d387f4a707"}
+]
+};
 
 function showProducts(type){
 let list = data[type];
