@@ -6,33 +6,96 @@
 <title>Alok Shop</title>
 
 <style>
-body{font-family:Arial;margin:0;background:#f5f5f5;}
-nav{background:#111;padding:15px;text-align:center;}
-nav a{color:#fff;margin:10px;text-decoration:none;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{background:#f4f6f9;}
+
+nav{
+background:#111;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:#fff;
+margin:10px;
+text-decoration:none;
+}
 
 .hero{
 background:linear-gradient(135deg,#0d6efd,#00c6ff);
-color:#fff;text-align:center;padding:40px;
-}
-
-.section{padding:20px;}
-
-button{
-padding:10px;
-margin:5px;
-border:none;
-background:#0d6efd;
 color:white;
-cursor:pointer;
-border-radius:5px;
+text-align:center;
+padding:40px;
 }
 
-.product-box{
+.categories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.cat-card{
 background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+cursor:pointer;
+transition:0.3s;
+}
+
+.cat-card:hover{
+transform:scale(1.05);
+}
+
+.cat-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.cat-card h3{
 padding:15px;
-margin:10px 0;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.products{
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.product-card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+.product-card h4{
+padding:10px;
+}
+
+.product-card p{
+padding:0 10px;
+color:#555;
+}
+
+.product-card button{
+margin:10px;
+padding:10px;
+background:#25D366;
+border:none;
+color:white;
+border-radius:5px;
+cursor:pointer;
 }
 
 .whatsapp{
@@ -52,66 +115,80 @@ text-decoration:none;
 
 <nav>
 <a href="#">Home</a>
-<a href="#products">Products</a>
 </nav>
 
 <div class="hero">
 <h1>Alok Cold Drinks & Snacks</h1>
-<p>Click category to see products</p>
+<p>Select category to explore products</p>
 </div>
 
-<div class="section" id="products">
+<!-- CATEGORY SECTION -->
+<div class="categories">
 
-<h2>Select Category</h2>
+<div class="cat-card" onclick="showProducts('cold')">
+<img src="https://images.unsplash.com/photo-1580910051074-3eb694886505">
+<h3>Cold Drinks</h3>
+</div>
 
-<button onclick="showCategory('cold')">Cold Drinks</button>
-<button onclick="showCategory('water')">Water Bottles</button>
-<button onclick="showCategory('chips')">Chips</button>
+<div class="cat-card" onclick="showProducts('water')">
+<img src="https://images.unsplash.com/photo-1561047029-3000c68339ca">
+<h3>Water Bottles</h3>
+</div>
 
-<div id="productList"></div>
+<div class="cat-card" onclick="showProducts('chips')">
+<img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087">
+<h3>Chips & Snacks</h3>
+</div>
 
 </div>
+
+<!-- PRODUCTS SHOW -->
+<div id="productSection" class="products"></div>
 
 <a class="whatsapp" href="https://wa.me/+919178722062">💬</a>
 
 <script>
 
 const data = {
-cold: [
-{name:"Coca Cola", stock:"Available"},
-{name:"Pepsi", stock:"Low Stock"},
-{name:"Sprite", stock:"Available"}
+cold:[
+{name:"Coca Cola", price:"₹40", stock:"Available", img:"https://images.unsplash.com/photo-1580910051074-3eb694886505"},
+{name:"Pepsi", price:"₹40", stock:"Available", img:"https://images.unsplash.com/photo-1604908176997-4310a3cb5b61"},
+{name:"Sprite", price:"₹40", stock:"Low Stock", img:"https://images.unsplash.com/photo-1622483767028-3f66f0a4d07e"},
+{name:"Red Bull", price:"₹120", stock:"Available", img:"https://images.unsplash.com/photo-1624517452488-04869289c4ca"},
+{name:"Monster", price:"₹125", stock:"Available", img:"https://images.unsplash.com/photo-1613478223719-2ab802602423"}
 ],
-water: [
-{name:"Bisleri 1L", stock:"Available"},
-{name:"Kinley 2L", stock:"Available"}
+water:[
+{name:"Bisleri 1L", price:"₹20", stock:"Available", img:"https://images.unsplash.com/photo-1564419320461-6870880221ad"},
+{name:"Kinley 2L", price:"₹35", stock:"Available", img:"https://images.unsplash.com/photo-1550583724-b2692b85b150"}
 ],
-chips: [
-{name:"Lays", stock:"Available"},
-{name:"Kurkure", stock:"Out of Stock"}
+chips:[
+{name:"Lays", price:"₹20", stock:"Available", img:"https://images.unsplash.com/photo-1585238342024-78d387f4a707"},
+{name:"Kurkure", price:"₹10", stock:"Available", img:"https://images.unsplash.com/photo-1621939514649-280e2ee25f60"}
 ]
 };
 
-function showCategory(type){
+function showProducts(type){
 let list = data[type];
 let html = "";
 
 list.forEach(item=>{
 html += `
-<div class="product-box">
-<h3>${item.name}</h3>
+<div class="product-card">
+<img src="${item.img}">
+<h4>${item.name}</h4>
+<p>Price: ${item.price}</p>
 <p>Stock: ${item.stock}</p>
 <button onclick="order('${item.name}')">Order Now</button>
 </div>
 `;
 });
 
-document.getElementById("productList").innerHTML = html;
+document.getElementById("productSection").innerHTML = html;
 }
 
-function order(product){
+function order(name){
 let phone="+919178722062";
-let msg="Hello, I want to order " + product;
+let msg="Hello, I want to order " + name;
 window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(msg));
 }
 
