@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<style>
+body{font-family:Arial;padding:20px;}
+input,select{margin:5px;padding:8px;}
+button{padding:8px;background:#0d6efd;color:white;border:none;}
+</style>
+</head>
+
+<body>
+
+<h2>Admin Panel</h2>
+
+<select id="category">
+<option value="cold">Cold Drinks</option>
+<option value="water">Water</option>
+<option value="chips">Chips</option>
+</select>
+
+<input type="text" id="name" placeholder="Product Name">
+<input type="text" id="price" placeholder="Price">
+<input type="text" id="stock" placeholder="Stock">
+<input type="text" id="img" placeholder="Image URL">
+
+<button onclick="addProduct()">Add Product</button>
+
+<h3>Saved Products</h3>
+<div id="list"></div>
+
+<script>
+
+let data = JSON.parse(localStorage.getItem("products")) || {
+cold:[], water:[], chips:[]
+};
+
+function addProduct(){
+let cat = document.getElementById("category").value;
+
+let product = {
+name: document.getElementById("name").value,
+price: document.getElementById("price").value,
+stock: document.getElementById("stock").value,
+img: document.getElementById("img").value
+};
+
+data[cat].push(product);
+localStorage.setItem("products", JSON.stringify(data));
+
+showData();
+}
+
+function showData(){
+let html="";
+for(let cat in data){
+html += "<h4>"+cat+"</h4>";
+data[cat].forEach(p=>{
+html += `<p>${p.name} - ${p.price} - ${p.stock}</p>`;
+});
+}
+document.getElementById("list").innerHTML = html;
+}
+
+showData();
+
+</script>
+
+</body>
+</html>
