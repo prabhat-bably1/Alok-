@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bill Generator</title>
+<style>
+body{font-family:Arial;padding:20px;}
+input{margin:5px;padding:8px;width:200px;}
+button{padding:10px;background:#0d6efd;color:white;border:none;}
+.bill{margin-top:20px;border:1px solid #ccc;padding:15px;}
+</style>
+</head>
+
+<body>
+
+<h2>Generate Bill</h2>
+
+<input type="text" id="customer" placeholder="Customer Name"><br>
+<input type="text" id="product" placeholder="Product Name"><br>
+<input type="number" id="price" placeholder="Price"><br>
+<input type="number" id="qty" placeholder="Quantity"><br>
+
+<button onclick="generateBill()">Generate Bill</button>
+
+<div id="bill" class="bill"></div>
+
+<script>
+function generateBill(){
+let name = document.getElementById("customer").value;
+let product = document.getElementById("product").value;
+let price = document.getElementById("price").value;
+let qty = document.getElementById("qty").value;
+
+let total = price * qty;
+
+document.getElementById("bill").innerHTML = `
+<h3>Bill</h3>
+<p>Name: ${name}</p>
+<p>Product: ${product}</p>
+<p>Price: ₹${price}</p>
+<p>Quantity: ${qty}</p>
+<h2>Total: ₹${total}</h2>
+<button onclick="window.print()">Print / Save PDF</button>
+`;
+}
+</script>
+
+</body>
+</html>
