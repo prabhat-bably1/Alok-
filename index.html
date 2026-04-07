@@ -4,35 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alok Colddrinks & Snacks</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --green-1:#063b1f;
       --green-2:#0d5b2f;
       --green-3:#0f6e37;
       --yellow:#ffbf1f;
-      --cream:#f5efdf;
-      --cream-2:#efe6d1;
+      --cream:#f7f0df;
+      --cream-2:#efe5cf;
       --text:#143120;
       --shadow:0 12px 28px rgba(0,0,0,.18);
       --radius:22px;
       --container:1280px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
     body{
       font-family:"Inter",sans-serif;
       background:var(--cream);
       color:#1a2b1e;
     }
-    img{display:block;max-width:100%}
-    a{text-decoration:none;color:inherit}
-    .container{width:min(var(--container),calc(100% - 28px));margin:0 auto}
 
-    /* NAVBAR */
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(var(--container),calc(100% - 28px));
+      margin:0 auto;
+    }
+
     .nav-wrap{
       position:sticky;
       top:0;
@@ -40,6 +57,7 @@
       background:linear-gradient(90deg,#042d17,#0a4d28);
       box-shadow:0 4px 18px rgba(0,0,0,.18);
     }
+
     .navbar{
       min-height:88px;
       display:flex;
@@ -47,13 +65,14 @@
       justify-content:space-between;
       gap:20px;
     }
+
     .brand{
       display:flex;
       align-items:center;
       gap:14px;
       color:#fff;
-      min-width:0;
     }
+
     .brand-icon{
       width:54px;
       height:54px;
@@ -66,15 +85,17 @@
       box-shadow:inset 0 -4px 0 rgba(0,0,0,.12);
       flex:0 0 auto;
     }
+
     .brand-title{
-      font-size:1.9rem;
+      font-size:1.8rem;
       font-weight:800;
       line-height:1;
       white-space:nowrap;
     }
+
     .brand-sub{
       color:#ffbf1f;
-      font-size:1.35rem;
+      font-size:1.25rem;
       font-weight:800;
       line-height:1.05;
       white-space:nowrap;
@@ -87,15 +108,19 @@
       color:#fff;
       font-weight:700;
     }
+
     .nav-links a{
       position:relative;
       padding:4px 0;
     }
+
     .nav-links a.active::after,
     .nav-links a:hover::after{
       content:"";
       position:absolute;
-      left:0;right:0;bottom:-12px;
+      left:0;
+      right:0;
+      bottom:-12px;
       height:3px;
       border-radius:99px;
       background:var(--yellow);
@@ -108,52 +133,25 @@
       color:#fff;
       font-weight:800;
     }
+
     .phone{
       white-space:nowrap;
       font-size:1.05rem;
     }
-    .cart{
-      position:relative;
-      font-size:1.8rem;
-      line-height:1;
-    }
-    .cart-badge{
-      position:absolute;
-      top:-8px;
-      right:-8px;
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      background:#ff3b30;
-      color:#fff;
-      font-size:.72rem;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-    }
 
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:none;
-      color:#fff;
-      font-size:1.9rem;
-    }
-
-    /* HERO */
     .hero{
       background:
-        linear-gradient(90deg,rgba(0,0,0,.65) 0%, rgba(0,0,0,.48) 34%, rgba(0,0,0,.12) 58%, rgba(0,0,0,.08) 100%),
-        url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-      min-height:630px;
+        linear-gradient(90deg,rgba(0,0,0,.66) 0%, rgba(0,0,0,.48) 34%, rgba(0,0,0,.16) 58%, rgba(0,0,0,.08) 100%),
+        url("https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      min-height:620px;
       position:relative;
       overflow:hidden;
     }
+
     .hero-inner{
-      min-height:630px;
+      min-height:620px;
       display:grid;
-      grid-template-columns: 1.02fr 1.12fr;
+      grid-template-columns:1fr 1.05fr;
       align-items:center;
       gap:28px;
     }
@@ -162,6 +160,7 @@
       color:#fff;
       padding:40px 0;
     }
+
     .tag{
       display:inline-block;
       background:#3b7c3f;
@@ -173,31 +172,39 @@
       box-shadow:var(--shadow);
       margin-bottom:18px;
     }
+
     .hero-title{
       font-family:"Anton",sans-serif;
-      font-size:clamp(3.4rem,7vw,6.4rem);
+      font-size:clamp(3.1rem,7vw,6rem);
       line-height:.95;
       letter-spacing:.02em;
       text-transform:uppercase;
     }
-    .hero-title .yellow{color:var(--yellow)}
+
+    .hero-title .yellow{
+      color:var(--yellow);
+    }
+
     .hero-line{
       margin-top:16px;
-      font-size:1.9rem;
+      font-size:1.7rem;
       font-weight:800;
       color:#f8f4e8;
     }
+
     .hero-sub{
       margin-top:14px;
-      font-size:1.55rem;
+      font-size:1.35rem;
       color:#f1ead7;
     }
+
     .hero-actions{
       display:flex;
       gap:18px;
       flex-wrap:wrap;
       margin-top:28px;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -206,16 +213,16 @@
       min-width:190px;
       padding:18px 28px;
       border-radius:999px;
-      font-size:1.15rem;
+      font-size:1.1rem;
       font-weight:800;
       box-shadow:var(--shadow);
-      transition:transform .2s ease;
     }
-    .btn:hover{transform:translateY(-2px)}
+
     .btn-yellow{
       background:linear-gradient(180deg,#ffcf44,#f3aa00);
       color:#17230f;
     }
+
     .btn-dark{
       background:rgba(15,15,20,.72);
       border:1px solid rgba(255,191,31,.6);
@@ -228,6 +235,7 @@
       align-items:center;
       padding:34px 0;
     }
+
     .shop-card{
       width:min(100%,760px);
       background:#0c3f21;
@@ -236,6 +244,7 @@
       overflow:hidden;
       box-shadow:0 20px 40px rgba(0,0,0,.28);
     }
+
     .shop-head{
       padding:18px 24px 14px;
       background:linear-gradient(180deg,#134f2c,#0c3f21);
@@ -244,52 +253,66 @@
       justify-content:space-between;
       gap:18px;
     }
+
     .shop-head-left{
       display:flex;
       align-items:center;
       gap:16px;
       color:#fff;
     }
+
     .shop-logo{
-      width:58px;height:58px;border-radius:16px;
+      width:58px;
+      height:58px;
+      border-radius:16px;
       background:linear-gradient(180deg,#ffcf52,#f0a400);
-      display:flex;align-items:center;justify-content:center;
-      color:#18451c;font-size:30px;font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#18451c;
+      font-size:30px;
+      font-weight:900;
     }
+
     .shop-name{
       font-family:"Anton",sans-serif;
       line-height:.92;
       text-transform:uppercase;
       letter-spacing:.02em;
-      font-size:3rem;
+      font-size:2.7rem;
       color:#f3f1e6;
     }
+
     .shop-name .sub{
       display:block;
-      font-size:2rem;
+      font-size:1.8rem;
       color:var(--yellow);
       margin-top:6px;
     }
+
     .bottle-set{
       font-size:2.5rem;
       white-space:nowrap;
     }
+
     .shop-strip{
       background:#0a5c2f;
       color:#f3f1e6;
       padding:8px 16px;
       text-align:center;
-      font-size:1.2rem;
+      font-size:1.1rem;
       font-weight:800;
       letter-spacing:.02em;
     }
+
     .shop-body{
       position:relative;
       min-height:355px;
       background:
         linear-gradient(180deg,rgba(8,25,16,.1),rgba(8,25,16,.1)),
-        url("https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+        url("https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
     }
+
     .side-offer{
       position:absolute;
       right:16px;
@@ -303,6 +326,7 @@
       line-height:1.9;
       box-shadow:var(--shadow);
     }
+
     .curve{
       position:relative;
       height:74px;
@@ -314,20 +338,19 @@
       border-top:6px solid #a98a10;
     }
 
-    /* FEATURES */
     .features{
       background:var(--cream);
       margin-top:-12px;
       padding-bottom:16px;
     }
+
     .feature-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
-      gap:0;
-      background:rgba(255,255,255,.18);
       border-radius:20px;
       overflow:hidden;
     }
+
     .feature{
       display:flex;
       align-items:center;
@@ -336,39 +359,50 @@
       padding:22px 18px;
       border-right:1px solid rgba(85,98,54,.16);
     }
-    .feature:last-child{border-right:none}
+
+    .feature:last-child{
+      border-right:none;
+    }
+
     .feature-icon{
-      width:64px;height:64px;border-radius:50%;
+      width:64px;
+      height:64px;
+      border-radius:50%;
       background:#1e6b39;
       color:#fff;
-      display:flex;align-items:center;justify-content:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       font-size:1.7rem;
       box-shadow:var(--shadow);
       flex:0 0 auto;
     }
+
     .feature h3{
       color:var(--green-1);
-      font-size:1.9rem;
+      font-size:1.7rem;
       line-height:1;
       font-weight:800;
     }
+
     .feature p{
       color:#41543d;
-      font-size:1.25rem;
+      font-size:1.08rem;
       margin-top:4px;
       font-weight:500;
     }
 
-    /* CATEGORY */
     .category-section{
       padding:22px 0 34px;
     }
+
     .category-wrap{
       display:grid;
-      grid-template-columns: 1fr 280px;
+      grid-template-columns:1fr 280px;
       gap:24px;
       align-items:start;
     }
+
     .category-panel{
       background:#f8f1e4;
       border-radius:24px;
@@ -376,6 +410,7 @@
       padding:22px 18px 18px;
       border:1px solid rgba(80,66,26,.08);
     }
+
     .title-line{
       display:grid;
       grid-template-columns:1fr auto 1fr;
@@ -383,24 +418,27 @@
       gap:18px;
       margin-bottom:18px;
     }
+
     .title-line::before,
     .title-line::after{
       content:"";
       height:3px;
       background:linear-gradient(90deg,transparent,#d4b44f,transparent);
     }
+
     .title-line h2{
       font-family:"Anton",sans-serif;
       color:#1f5a2d;
-      font-size:2.4rem;
+      font-size:2.25rem;
       letter-spacing:.02em;
     }
 
     .category-grid{
       display:grid;
-      grid-template-columns:repeat(6,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:14px;
     }
+
     .category-card{
       background:#f6efe1;
       border:1px solid rgba(97,77,30,.12);
@@ -408,19 +446,22 @@
       overflow:hidden;
       box-shadow:0 8px 16px rgba(0,0,0,.06);
     }
+
     .category-card img{
       width:100%;
-      height:160px;
+      height:180px;
       object-fit:cover;
       background:#fff;
     }
+
     .category-body{
       text-align:center;
       padding:14px 10px 16px;
     }
+
     .category-body h3{
       color:#224f2b;
-      font-size:1.55rem;
+      font-size:1.35rem;
       font-weight:800;
       text-transform:uppercase;
       line-height:1;
@@ -435,6 +476,7 @@
       text-align:center;
       min-height:100%;
     }
+
     .offer-box h3{
       font-family:"Anton",sans-serif;
       font-size:3rem;
@@ -442,31 +484,39 @@
       text-transform:uppercase;
       color:#f5f1e7;
     }
-    .offer-box h3 span{color:var(--yellow)}
+
+    .offer-box h3 span{
+      color:var(--yellow);
+    }
+
     .offer-line{
       margin:16px auto;
       width:100%;
       height:2px;
       background:rgba(255,255,255,.2);
     }
+
     .offer-up{
-      font-size:1.6rem;
+      font-size:1.4rem;
       color:#efe7d0;
       font-weight:700;
     }
+
     .offer-off{
-      font-size:3.2rem;
+      font-size:2.9rem;
       line-height:1;
       font-weight:900;
       color:#f4f0e8;
       margin-top:6px;
     }
+
     .offer-small{
-      font-size:1.35rem;
+      font-size:1.15rem;
       font-weight:700;
       margin-top:8px;
       color:#f5eccc;
     }
+
     .offer-btn{
       display:inline-block;
       margin-top:24px;
@@ -476,54 +526,70 @@
       padding:16px 26px;
       border-radius:999px;
       box-shadow:var(--shadow);
-      font-size:1.15rem;
+      font-size:1.05rem;
     }
 
-    /* FOOTER BAR */
     .footer-bar{
       background:linear-gradient(90deg,#033516,#085523);
       color:#f4efde;
       margin-top:12px;
     }
+
     .footer-row{
       min-height:96px;
       display:grid;
-      grid-template-columns: 1.2fr 1.2fr 1.4fr auto;
+      grid-template-columns:1.2fr 1.2fr 1.4fr auto;
       align-items:center;
       gap:20px;
     }
+
     .footer-item{
       display:flex;
       align-items:center;
       gap:12px;
-      font-size:1.25rem;
+      font-size:1.05rem;
       font-weight:600;
       padding:0 10px;
       border-right:1px solid rgba(255,255,255,.12);
     }
-    .footer-item:last-child{border-right:none}
+
+    .footer-item:last-child{
+      border-right:none;
+    }
+
     .footer-icon{
       color:var(--yellow);
-      font-size:1.8rem;
+      font-size:1.6rem;
       flex:0 0 auto;
     }
+
     .social-icons{
       display:flex;
       align-items:center;
       gap:18px;
       justify-content:flex-end;
-      font-size:2rem;
+      font-size:1.8rem;
       color:#fff;
       padding-right:10px;
     }
 
-    /* MOBILE */
     @media (max-width: 1200px){
-      .hero-inner{grid-template-columns:1fr}
-      .shop-card-wrap{justify-content:center;padding-top:0}
-      .category-grid{grid-template-columns:repeat(3,1fr)}
-      .category-wrap{grid-template-columns:1fr}
-      .footer-row{grid-template-columns:1fr 1fr}
+      .hero-inner{
+        grid-template-columns:1fr;
+      }
+
+      .shop-card-wrap{
+        justify-content:center;
+        padding-top:0;
+      }
+
+      .category-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .footer-row{
+        grid-template-columns:1fr 1fr;
+      }
     }
 
     @media (max-width: 900px){
@@ -531,57 +597,124 @@
       .nav-right .phone{
         display:none;
       }
-      .menu-toggle{display:block}
-      .navbar{min-height:78px}
-      .brand-title{font-size:1.45rem}
-      .brand-sub{font-size:1.05rem}
-      .hero{min-height:auto}
-      .hero-inner{min-height:auto;padding:28px 0 34px}
-      .hero-copy{padding-top:12px}
-      .feature-grid{grid-template-columns:1fr 1fr}
-      .category-grid{grid-template-columns:repeat(2,1fr)}
-      .footer-row{grid-template-columns:1fr}
+
+      .navbar{
+        min-height:78px;
+      }
+
+      .feature-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .category-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .footer-row{
+        grid-template-columns:1fr;
+      }
+
       .footer-item{
         border-right:none;
         border-bottom:1px solid rgba(255,255,255,.12);
         padding:16px 0;
       }
-      .social-icons{justify-content:center;padding:16px 0}
+
+      .social-icons{
+        justify-content:center;
+        padding:16px 0;
+      }
     }
 
     @media (max-width: 640px){
-      .container{width:min(100% - 18px,var(--container))}
-      .brand-icon{width:44px;height:44px;font-size:23px}
-      .brand-title{font-size:1.12rem}
-      .brand-sub{font-size:.86rem}
-      .hero-title{font-size:3rem}
-      .hero-line{font-size:1.2rem}
-      .hero-sub{font-size:1.05rem}
-      .btn{min-width:160px;padding:15px 20px;font-size:1rem}
-      .shop-head{padding:14px}
-      .shop-name{font-size:2rem}
-      .shop-name .sub{font-size:1.2rem}
-      .bottle-set{display:none}
-      .shop-strip{font-size:.85rem;line-height:1.4}
-      .shop-body{min-height:240px}
-      .side-offer{display:none}
-      .feature-grid{grid-template-columns:1fr}
+      .container{
+        width:min(100% - 18px,var(--container));
+      }
+
+      .brand-icon{
+        width:44px;
+        height:44px;
+        font-size:23px;
+      }
+
+      .brand-title{
+        font-size:1.15rem;
+      }
+
+      .brand-sub{
+        font-size:.9rem;
+      }
+
+      .hero-title{
+        font-size:2.7rem;
+      }
+
+      .hero-line{
+        font-size:1.1rem;
+      }
+
+      .hero-sub{
+        font-size:1rem;
+      }
+
+      .btn{
+        min-width:160px;
+        padding:15px 20px;
+        font-size:1rem;
+      }
+
+      .shop-head{
+        padding:14px;
+      }
+
+      .shop-name{
+        font-size:2rem;
+      }
+
+      .shop-name .sub{
+        font-size:1.2rem;
+      }
+
+      .bottle-set,
+      .side-offer{
+        display:none;
+      }
+
+      .shop-strip{
+        font-size:.82rem;
+        line-height:1.4;
+      }
+
+      .shop-body{
+        min-height:240px;
+      }
+
+      .feature-grid,
+      .category-grid{
+        grid-template-columns:1fr;
+      }
+
       .feature{
         justify-content:flex-start;
         border-right:none;
         border-bottom:1px solid rgba(85,98,54,.16);
       }
-      .feature:last-child{border-bottom:none}
-      .feature h3{font-size:1.45rem}
-      .feature p{font-size:1rem}
-      .title-line h2{font-size:1.7rem}
-      .category-grid{grid-template-columns:1fr}
-      .category-card img{height:190px}
-      .category-body h3{font-size:1.25rem}
-      .offer-box h3{font-size:2.2rem}
-      .offer-up{font-size:1.15rem}
-      .offer-off{font-size:2.5rem}
-      .offer-small{font-size:1rem}
+
+      .feature:last-child{
+        border-bottom:none;
+      }
+
+      .title-line h2{
+        font-size:1.65rem;
+      }
+
+      .category-card img{
+        height:190px;
+      }
+
+      .offer-box h3{
+        font-size:2.2rem;
+      }
     }
   </style>
 </head>
@@ -591,10 +724,10 @@
     <div class="container">
       <nav class="navbar">
         <div class="brand">
-          <div class="brand-icon">🛒</div>
+          <div class="brand-icon">🥤</div>
           <div>
             <div class="brand-title">Alok Colddrinks</div>
-            <div class="brand-sub">& Snacks Store</div>
+            <div class="brand-sub">& Snacks Shop</div>
           </div>
         </div>
 
@@ -608,10 +741,7 @@
 
         <div class="nav-right">
           <div class="phone">📞 +91 98765 43210</div>
-          <div class="cart">🛒<div class="cart-badge">0</div></div>
         </div>
-
-        <button class="menu-toggle">☰</button>
       </nav>
     </div>
   </div>
@@ -619,15 +749,17 @@
   <section class="hero" id="home">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <div class="tag">Your Daily Needs, All in One Place</div>
+        <div class="tag">Cold • Fresh • Tasty</div>
+
         <h1 class="hero-title">
-          Kirana &<br><span class="yellow">Colddrink Shop</span>
+          Colddrinks &<br><span class="yellow">Snacks Shop</span>
         </h1>
-        <div class="hero-line">Fresh Groceries • Daily Essentials • Chilled Drinks</div>
-        <div class="hero-sub">Sab kuch milega yahin, aur best quality ke saath!</div>
+
+        <div class="hero-line">Soft Drinks • Chips • Juice • Ice Cream</div>
+        <div class="hero-sub">Thanda aur tasty har din, best price ke saath.</div>
 
         <div class="hero-actions">
-          <a href="#products" class="btn btn-yellow">🛒 Shop Now</a>
+          <a href="#products" class="btn btn-yellow">🥤 Shop Now</a>
           <a href="#contact" class="btn btn-dark">📞 Contact Us</a>
         </div>
       </div>
@@ -636,20 +768,20 @@
         <div class="shop-card">
           <div class="shop-head">
             <div class="shop-head-left">
-              <div class="shop-logo">🧺</div>
+              <div class="shop-logo">🥤</div>
               <div class="shop-name">
                 Alok Colddrinks
-                <span class="sub">& Snacks Store</span>
+                <span class="sub">& Snacks Shop</span>
               </div>
             </div>
-            <div class="bottle-set">🥤🧃🧴</div>
+            <div class="bottle-set">🥤🧃🍟</div>
           </div>
 
-          <div class="shop-strip">GROCERIES • SNACKS • COLDDRINKS • DAIRY • HOUSEHOLD</div>
+          <div class="shop-strip">COLDDRINKS • SNACKS • JUICES • ICE CREAM • CHIPS</div>
 
           <div class="shop-body">
             <div class="side-offer">
-              FRESH STOCK<br>✦<br>BEST PRICES<br>✦<br>DAILY OFFERS
+              COLD DRINKS<br>✦<br>BEST PRICE<br>✦<br>FAST SERVICE
             </div>
           </div>
         </div>
@@ -663,18 +795,18 @@
     <div class="container">
       <div class="feature-grid">
         <div class="feature">
-          <div class="feature-icon">👜</div>
+          <div class="feature-icon">🥤</div>
           <div>
-            <h3>Wide Range</h3>
-            <p>All your daily needs</p>
+            <h3>Fresh Drinks</h3>
+            <p>Cold and refreshing</p>
           </div>
         </div>
 
         <div class="feature">
-          <div class="feature-icon">⚙️</div>
+          <div class="feature-icon">🍟</div>
           <div>
-            <h3>Best Quality</h3>
-            <p>Fresh & trusted products</p>
+            <h3>Tasty Snacks</h3>
+            <p>Crunchy and fresh</p>
           </div>
         </div>
 
@@ -682,15 +814,15 @@
           <div class="feature-icon">🏷️</div>
           <div>
             <h3>Best Prices</h3>
-            <p>Affordable for everyone</p>
+            <p>Affordable for all</p>
           </div>
         </div>
 
         <div class="feature">
-          <div class="feature-icon">🚚</div>
+          <div class="feature-icon">⚡</div>
           <div>
             <h3>Fast Service</h3>
-            <p>Quick & friendly service</p>
+            <p>Quick friendly service</p>
           </div>
         </div>
       </div>
@@ -708,11 +840,6 @@
 
         <div class="category-grid">
           <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=700&q=80" alt="Groceries">
-            <div class="category-body"><h3>Groceries</h3></div>
-          </div>
-
-          <div class="category-card">
             <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80" alt="Colddrinks">
             <div class="category-body"><h3>Colddrinks</h3></div>
           </div>
@@ -723,18 +850,13 @@
           </div>
 
           <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=700&q=80" alt="Dairy">
-            <div class="category-body"><h3>Dairy</h3></div>
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=80" alt="Juices">
+            <div class="category-body"><h3>Juices</h3></div>
           </div>
 
           <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1619454016518-697bc231e7cb?auto=format&fit=crop&w=700&q=80" alt="Personal Care">
-            <div class="category-body"><h3>Personal Care</h3></div>
-          </div>
-
-          <div class="category-card">
-            <img src="https://images.unsplash.com/photo-1583947582886-f40ec95dd752?auto=format&fit=crop&w=700&q=80" alt="Household">
-            <div class="category-body"><h3>Household</h3></div>
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80" alt="Ice Cream">
+            <div class="category-body"><h3>Ice Cream</h3></div>
           </div>
         </div>
       </div>
@@ -754,7 +876,26 @@
     <div class="container footer-row">
       <div class="footer-item">
         <div class="footer-icon">📍</div>
-        <div>123, Main Market, Your City, India</div>
+        <div>Main Road, Your City, India</div>
       </div>
 
-      <div class="footer-ite
+      <div class="footer-item">
+        <div class="footer-icon">🕒</div>
+        <div>Open Daily: 8:00 AM – 10:00 PM</div>
+      </div>
+
+      <div class="footer-item">
+        <div class="footer-icon">🟢</div>
+        <div>WhatsApp: +91 98765 43210</div>
+      </div>
+
+      <div class="social-icons">
+        <span>f</span>
+        <span>◎</span>
+        <span>𝕏</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
